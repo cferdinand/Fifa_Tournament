@@ -1,12 +1,12 @@
-from flask import Flask
-from .views import fifa_views as views
+# from flask import Flask
+# from .views import fifa_views as views
 
 
-def create_app():
-    app = Flask(__name__, instance_relative_config=True)
-    app.register_blueprint(views.bp)
+# def create_app():
+#     app = Flask(__name__, instance_relative_config=True)
+#     app.register_blueprint(views.bp)
 
-    return app
+#     return app
 
 
 # if __name__ == "__main__":
