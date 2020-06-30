@@ -71,6 +71,8 @@ try:
         values = (club["name"], club["logo"])
         cursor.execute(command, values)
 
+    con.commit()
+
 except (Exception, psycopg2.DatabaseError) as err:
     print("DATABASE ERROR: ", err)
 finally:

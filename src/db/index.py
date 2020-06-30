@@ -1,35 +1,20 @@
 import psycopg2
 from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
-from table import create_tables
-
 
 # Connect to PostgreSQL DBMS
 
-con = psycopg2.connect("dbname=postgres user=christianferdinand")
 
-con.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+def open_connection(dbname, user):
+    con = psycopg2.connect(f"dbname={dbname} user={user}")
+    con.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
 
+    return con
 
-# Obtain a DB Cursor
-
-cursor = con.cursor()
-
-name_Database = "fifa_tournament"
+# Close the connection
 
 
-# Create a database in PostgreSQL
+def close_connection(cursor, con):
+    cursor.close()
+    con.close()
 
-sqlCreateDatabase = "create database "+name_Database+";"
-cursor.execute(
-    f"SELECT 1 FROM pg_catalog.pg_database WHERE datname = '{name_Database}'")
-exists = cursor.fetchone()
-if not exists:
-    cursor.execute(sqlCreateDatabase)
-
-
-cursor.close()
-con.close()
-
-# Create tables in PostgreSQL database
-
-create_tables()
+    return
