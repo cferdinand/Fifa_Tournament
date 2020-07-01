@@ -35,9 +35,9 @@ def add_tournament(tournament):
     values = [value for value in tournament.values()]
 
     cursor.execute(query, values)
+    con.con.commit()
 
-
-print(get_tournaments())
+    return
 
 
 def get_match_ups(tournament):
