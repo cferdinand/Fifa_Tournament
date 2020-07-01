@@ -1,9 +1,9 @@
-import index as db
+from .index import DB_Connection
 from psycopg2 import DatabaseError
 
 # Obtain a DB Cursor
-con = db.open_connection("postgres", "christianferdinand")
-cursor = con.cursor()
+con = DB_Connection("postgres", "christianferdinand")
+cursor = con.get_cursor()
 
 
 # Create a database in PostgreSQL
@@ -17,7 +17,7 @@ if not exists:
     cursor.execute(sqlCreateDatabase)
 
 # Close the postgres connection
-db.close_connection(cursor, con)
+con.close_connection()
 
 # Create tables
 
@@ -38,6 +38,8 @@ def create_tables():
         CREATE TABLE IF NOT EXISTS tournaments (
             id serial PRIMARY KEY,
             tournament_name varchar(128),
+            type varchar,
+            number_of_teams int,
             winner int
         );""",
         "teams_table": """
@@ -56,6 +58,7 @@ def create_tables():
             away_team int,
             home_score int,
             away_score int,
+            match_type varchar,
             winner int,
             tournament int
             );
@@ -63,19 +66,18 @@ def create_tables():
     }
 
     try:
-        con = db.open_connection("fifa_tournament", "christianferdinand")
-        cursor = con.cursor()
+        con = DB_Connection("fifa_tournament", "christianferdinand")
+        cursor = con.get_cursor()
 
         for command in tournament_tables.values():
             cursor.execute(command)
 
-        con.commit()
+        con.con.commit()
 
     except (Exception, DatabaseError) as err:
         print(err)
     finally:
-        cursor.close()
-        con.close()
+        con.close_connection()
 
 
 create_tables()

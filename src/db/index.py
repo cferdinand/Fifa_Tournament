@@ -4,17 +4,28 @@ from psycopg2.extensions import ISOLATION_LEVEL_AUTOCOMMIT
 # Connect to PostgreSQL DBMS
 
 
-def open_connection(dbname, user):
-    con = psycopg2.connect(f"dbname={dbname} user={user}")
-    con.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
+class DB_Connection():
 
-    return con
+    def __init__(self, dbname, user):
+        self.dbname = dbname
+        self.user = user
+        self.con = self.open_connection()
 
-# Close the connection
+    def open_connection(self):
+        con = psycopg2.connect(f"dbname={self.dbname} user={self.user}")
+        con.set_isolation_level(ISOLATION_LEVEL_AUTOCOMMIT)
 
+        return con
 
-def close_connection(cursor, con):
-    cursor.close()
-    con.close()
+    # Generate a cursor object
+    def get_cursor(self):
+        self.cursor = self.con.cursor()
 
-    return
+        return self.cursor
+
+    # Close the connection
+    def close_connection(self):
+        self.cursor.close()
+        self.con.close()
+
+        return
