@@ -1,0 +1,38 @@
+{
+  "name": "fifa_tournament",
+  "version": "1.0.0",
+  "description": "Fifa Tournament App built with react and flask.",
+  "main": "index.js",
+  "directories": {
+    "lib": "lib"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "build-dev": "webpack -d --watch --mode development",
+    "build": "webpack -p --mode production"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/cferdinand/Fifa_Tournament.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/cferdinand/Fifa_Tournament/issues"
+  },
+  "homepage": "https://github.com/cferdinand/Fifa_Tournament#readme",
+  "dependencies": {
+    "@babel/core": "^7.6.4",
+    "@babel/preset-env": "^7.6.3",
+    "@babel/preset-react": "^7.6.3",
+    "axios": "^0.19.2",
+    "babel-loader": "^8.0.6",
+    "flickity": "^2.2.1",
+    "react": "^16.13.1",
+    "react-dom": "^16.13.1",
+    "react-flickity-component": "^3.5.0",
+    "react-router-dom": "^5.2.0",
+    "webpack": "^4.43.0",
+    "webpack-cli": "^3.3.12"
+  }
+}

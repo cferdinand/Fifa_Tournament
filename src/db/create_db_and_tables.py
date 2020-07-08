@@ -40,7 +40,8 @@ def create_tables():
             tournament_name varchar(128),
             type varchar,
             number_of_teams int,
-            winner int
+            winner int,
+            date varchar
         );""",
         "teams_table": """
         CREATE TABLE IF NOT EXISTS teams (

@@ -1,0 +1,30 @@
+.carousel-card {
+  width: 40%;
+  height: 129px;
+  margin-right: 10px;
+  display: flex;
+  background-color: ghostwhite;
+  border-radius: 12px;
+  box-shadow: 0px 4px 5px 2px lightgrey;
+}
+
+.trophy-image {
+  height: 80px;
+}
+
+.carousel-image {
+  align-self: center;
+  position: absolute;
+  left: 463px;
+}
+
+p.carousel-tournament-name {
+  font-size: 26px;
+  font-weight: 700;
+  margin-left: 40px;
+}
+
+p.carousel-tournament-winner {
+  font-size: 21px;
+  margin-left: 40px;
+}
