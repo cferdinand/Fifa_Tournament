@@ -58,7 +58,7 @@ def remove_tournament(tournament):
 
 
 def update_tournamet(tournament):
-    pass
+    return True
 
 
 def get_match_ups(tournament):

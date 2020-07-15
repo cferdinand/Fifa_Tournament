@@ -6,7 +6,9 @@ const CarouselCardsTemplate = ({ tournament }) => {
       <div className="carousel-body">
         <div className="carousel-text">
           <p className="carousel-tournament-name">{tournament.name}</p>
-          <p className="carousel-tournament-winner">{tournament.winner}</p>
+          <p className="carousel-tournament-winner">
+            Champion: {tournament.winner}
+          </p>
         </div>
       </div>
       <div className="carousel-image">

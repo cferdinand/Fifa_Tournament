@@ -24,7 +24,12 @@ const Carousel = () => {
   }, []);
   return (
     <div>
-      <Cards />
+      <div>
+        <Cards />
+      </div>
+      <div>
+        <button>View All</button>
+      </div>
     </div>
   );
 };
